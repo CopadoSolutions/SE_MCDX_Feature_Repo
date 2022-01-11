@@ -1,3 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata"/>
-
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Developer_Address</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Developer Address</shortDescription>
+        <value>Address of Dev.</value>
+    </labels>
+</CustomLabels>
