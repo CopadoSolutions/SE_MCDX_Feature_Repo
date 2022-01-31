@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Profile xmlns="http://soap.sforce.com/2006/04/metadata">
+<Profile xmlns="http://soap.sforce.com/2006/04/metadata"
+      xmlns:n1="http://www.w3.org/2001/XMLSchema-instance">
     <applicationVisibilities>
         <application>standard__AllTabSet</application>
         <default>false</default>
@@ -3433,11 +3434,11 @@
         <layout>Macro-Macro Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Metric-Formato de medición de finalización</layout>
-        <recordType>Metric.Completion</recordType>
+        <layout>Metric-Metric Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Metric-Metric Layout</layout>
+        <layout>Metric-Formato de medición de finalización</layout>
+        <recordType>Metric.Completion</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Metric-Metric Layout</layout>
@@ -3611,6 +3612,7 @@
     <layoutAssignments>
         <layout>WorkThanks-Thanks Layout</layout>
     </layoutAssignments>
+    <loginHours n1:nil="true" />
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
@@ -5296,6 +5298,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageRoles</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ManageSandboxes</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
