@@ -3,7 +3,7 @@ public with sharing class AccountOperations {
         Public static Account setDefaultDescription(Account a){
             If (a.Description != null) return a;
             Else {
-                a.Description = 'Default description';
+                a.Description = 'Default description is XYZ';
                 return a;
             }
         }
