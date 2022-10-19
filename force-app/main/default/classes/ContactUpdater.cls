@@ -3,7 +3,7 @@ public without sharing class ContactUpdater {
     public static void conUpdate( Contact[] contacts ) {
         List<Contact>cons = new List<Contact>();
    		for ( Contact con : contacts ) {
-      		con.firstname = 'Larry';
+      		con.firstname = 'Larry Jones';
             cons.add(con);
    		}
         try {
