@@ -1,17 +1,17 @@
 public without sharing class ContactUpdater {
     
-    public static void conUpdate( Contact[] cons ) {
-        List<Contact>contacts = new List<Contact>();
-   		for ( Contact con : cons ) {
-      		con.firstname = 'Jones';
-            contacts.add(con);
+    public static void conUpdate( Contact[] contacts ) {
+        List<Contact>cons = new List<Contact>();
+   		for ( Contact con : contacts ) {
+      		con.firstname = 'Larry Jones';
+            cons.add(con);
    		}
         try {
             
             if ( !Schema.sObjectType.Account.fields.name.isUpdateable() ) {
                 return;
             } 
-            update contacts;
+            update cons;
         } catch( DMLException e ) {
             System.debug( LoggingLevel.WARN, 'Error = ' + e );
         }
