@@ -15,3 +15,5 @@
 *SocialService__*
 installedPackages/*
 .copado/*
+.sf/*
+.sfdx/*
