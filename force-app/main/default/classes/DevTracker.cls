@@ -1,5 +1,5 @@
 public class DevTracker {
     public void devTrackerUpdate(){
-        System.debug('Update Tracker for Extension BG');
+        System.debug('Update Tracker for Extension Test');
     }
 }
