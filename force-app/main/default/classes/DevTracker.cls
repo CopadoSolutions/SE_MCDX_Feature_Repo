@@ -1,5 +1,5 @@
 public class DevTracker {
     public void devTrackerUpdate(){
-        System.debug('Update upppp');
+        System.debug('Update to class');
     }
 }
