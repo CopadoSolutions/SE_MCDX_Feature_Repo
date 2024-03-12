@@ -1,5 +1,5 @@
 public class DevTracker {
     public void devTrackerUpdate(){
-        System.debug('Update Tracker Graham Posey hello 000');
+        System.debug('Update');
     }
 }
