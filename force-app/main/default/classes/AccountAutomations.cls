@@ -6,22 +6,24 @@ public class AccountAutomations {
             return a;
         }
     }
-    public static Account setDefaultSite(Account a){
-        a.Site = 'Single location'; 
+    public static Account setDefaultBillingAddress(Account a){
+        a.billingstreet = 'Basauri, 6'; 
+        a.billingstate = 'Madrid'; 
+        a.billingpostalcode ='28023'; 
         return a;
     }
     public static Account setDefaultShippingAddress(Account a){
-        a.shippingstreet = '111 W Illinois St'; 
-        a.shippingstate = 'Chicago';
-        a.shippingpostalcode ='60654';
+        a.shippingstreet = 'Basauri, 6'; 
+        a.shippingstate = 'Madrid';
+        a.shippingpostalcode ='28023';
         return a;
     }
     public static Account setDefaultPhone(Account a) {
-        a.Phone='9999999';
+        a.Phone='688456789';
         return a;
     }
     public static Account setDefaultURL(Account a) {
-        a.website = 'www.copado.com'; 
+        a.website = 'www.copa.do'; 
         return a;
     }
 }
