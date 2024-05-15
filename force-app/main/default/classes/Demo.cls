@@ -1,6 +1,6 @@
 public with sharing class Demo {
     public Demo() {
-        System.debug('hello world')
+        System.debug('hello world 12')
 
     }
 }
