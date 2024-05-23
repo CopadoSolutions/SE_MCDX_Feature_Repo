@@ -7,4 +7,11 @@
         <shortDescription>Developer Address</shortDescription>
         <value>Address of Dev.</value>
     </labels>
+    <labels>
+        <fullName>HD_Label</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>HD Label</shortDescription>
+        <value>HDlabel</value>
+    </labels>
 </CustomLabels>
