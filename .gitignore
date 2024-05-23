@@ -1,19 +1,77 @@
-*copado__*
-*copado__*
-*copado__*
-*mobileLanding__*
-*mobileLanding__*
-*mobileLanding__*
-*sf_chttr_apps__*
-*sf_chttr_apps__*
-*sf_chttr_apps__*
-*cmcSf__*
-*cmcSf__*
-*cmcSf__*
-*SocialService__*
-*SocialService__*
-*SocialService__*
-installedPackages/*
-.copado/*
-.sf/*
-.sfdx/*
+# Salesforce cache
+.sf/
+.sfdx/
+.localdevserver/
+deploy-options.json
+.husky
+.vscode
+.copado/
+
+# LWC VSCode autocomplete
+**/lwc/jsconfig.json
+
+# LWC Jest coverage reports
+coverage/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Eslint cache
+.eslintcache
+
+# MacOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# Local environment variables
+.env
+
+# General Project related
+.DS_Store
+target/
+temp/
+/deploy/*
+/debug/
+**/dep-dir.txt
+*.prefs
+build.properties
+/sfdx-source/core/main/default
+
+# MavensMate IDE related
+*mm.log
+*.sublime-build
+*.sublime-project
+*.sublime-settings
+*.sublime-workspace
+.sublime-project
+.tm_properties
+
+# Eclipse IDE Related
+.project
+.settings/
+salesforce.schema
+Referenced Packages/
+
+# VS Code IDE Related
+.vscode/
+.history/
+
+# SFDX Related
+.sfdx/
+sfdx-source/common-base/main/default/
+sfdx-source/untracked/
+.execanon
+
+# NPM Related
+package.json
+node_modules/
+package-lock.json
