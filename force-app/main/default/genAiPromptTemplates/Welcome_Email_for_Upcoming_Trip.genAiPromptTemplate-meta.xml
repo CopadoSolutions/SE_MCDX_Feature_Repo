@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
-    <activeVersion>1</activeVersion>
     <description>This template is used to generate a welcome email for a guest&apos;s upcoming trip.</description>
     <developerName>Welcome_Email_for_Upcoming_Trip</developerName>
     <masterLabel>Welcome Email for Upcoming Trip</masterLabel>
@@ -43,7 +42,6 @@ List of resort experiences matching the guest&apos;s interests: {!$Flow:Add_Expe
             </parameters>
             <referenceName>Flow:Add_Experiences_to_Prompt</referenceName>
         </templateDataProviders>
-        <versionNumber>1</versionNumber>
     </templateVersions>
     <type>einstein_gpt__salesEmail</type>
     <visibility>Global</visibility>
