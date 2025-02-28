@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
-    <activeVersion>1</activeVersion>
     <description>This template is used to generate a description for a resort experience.</description>
     <developerName>Generate_Experience_Description</developerName>
     <masterLabel>Generate Experience Description</masterLabel>
@@ -29,7 +28,6 @@ Capacity: {!$Input:Experience__c.Capacity__c}
         </inputs>
         <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
         <status>Published</status>
-        <versionNumber>1</versionNumber>
     </templateVersions>
     <type>einstein_gpt__fieldCompletion</type>
     <visibility>Global</visibility>
