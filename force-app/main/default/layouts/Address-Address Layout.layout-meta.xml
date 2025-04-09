@@ -33,7 +33,7 @@
                 <field>AddressType</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Read</behavior>
                 <field>DrivingDirections</field>
             </layoutItems>
         </layoutColumns>
@@ -43,7 +43,7 @@
         <customLabel>false</customLabel>
         <detailHeading>false</detailHeading>
         <editHeading>false</editHeading>
-        <layoutColumns/>
+        <layoutColumns />
         <style>CustomLinks</style>
     </layoutSections>
     <relatedObjects>ParentId</relatedObjects>
