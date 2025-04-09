@@ -7,4 +7,11 @@
         <shortDescription>Abhi - dev2 label</shortDescription>
         <value>This is from dev2</value>
     </labels>
+    <labels>
+        <fullName>Dynamic_Label_for_CM</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dynamic Label for CM</shortDescription>
+        <value>Sample value</value>
+    </labels>
 </CustomLabels>
