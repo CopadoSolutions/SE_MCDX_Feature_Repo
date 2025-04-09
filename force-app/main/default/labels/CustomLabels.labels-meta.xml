@@ -1,3 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata"/>
-
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Abhi_dev2_label</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Abhi - dev2 label</shortDescription>
+        <value>This is from dev2</value>
+    </labels>
+</CustomLabels>
