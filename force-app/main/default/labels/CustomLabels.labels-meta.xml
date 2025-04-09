@@ -7,4 +7,11 @@
         <shortDescription>Abhi Test Label</shortDescription>
         <value>A Demo Value for the label</value>
     </labels>
+    <labels>
+        <fullName>Abhi_dev2_label</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Abhi - dev2 label</shortDescription>
+        <value>This is from dev2</value>
+    </labels>
 </CustomLabels>
