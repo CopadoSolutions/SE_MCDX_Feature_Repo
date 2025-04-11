@@ -15,6 +15,13 @@
         <value>This is from dev2</value>
     </labels>
     <labels>
+        <fullName>DeleteMe</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DeleteMe</shortDescription>
+        <value>RandomLabel</value>
+    </labels>
+    <labels>
         <fullName>Dynamic_Label_for_CM</fullName>
         <language>en_US</language>
         <protected>false</protected>
