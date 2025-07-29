@@ -1,0 +1,24 @@
+.severity-1-btn {
+  --slds-c-button-brand-color-background: #ea001e;
+  --slds-c-button-brand-color-border: #ea001e;
+}
+.severity-2-btn {
+  --slds-c-button-brand-color-background: #ffb75d;
+  --slds-c-button-brand-color-border: #ffb75d;
+}
+.severity-3-btn {
+  --slds-c-button-brand-color-background: #ffe066;   /* Yellow for Moderate */
+  --slds-c-button-brand-color-border: #ffe066;
+}
+.severity-4-btn {
+  --slds-c-button-brand-color-background: #5bc0eb;   /* Blue for Low */
+  --slds-c-button-brand-color-border: #5bc0eb;
+}
+.severity-5-btn {
+  --slds-c-button-brand-color-background: #2e8540;
+  --slds-c-button-brand-color-border: #2e8540;
+}
+.selected-severity-btn {
+  box-shadow: 0 0 0 3px #005fb2;
+  border: 2px solid #005fb2;
+}
