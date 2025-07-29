@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>60.0</apiVersion>
+  <description>Exact pattern flow for user data sharing violation with sharing</description>
+  <environments>Default</environments>
+  <interviewLabel>Test User Data Sharing Violation Exact {!$Flow.CurrentDateTime}</interviewLabel>
+  <label>Test User Data Sharing Violation Exact</label>
+  <processMetadataValues>
+    <name>BuilderType</name>
+    <value>
+      <stringValue>LightningFlowBuilder</stringValue>
+    </value>
+  </processMetadataValues>
+  <processType>Flow</processType>
+  <runInMode>SystemModeWithSharing</runInMode>
+  <start>
+    <locationX>50</locationX>
+    <locationY>0</locationY>
+    <connector>
+      <targetReference>Get_Contact_By_Email</targetReference>
+    </connector>
+  </start>
+  <recordLookups>
+    <name>Get_Contact_By_Email</name>
+    <label>Get Contact By Email</label>
+    <locationX>176</locationX>
+    <locationY>0</locationY>
+    <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+    <connector>
+      <targetReference>End</targetReference>
+    </connector>
+    <filterLogic>and</filterLogic>
+    <filters>
+      <field>Email</field>
+      <operator>EqualTo</operator>
+      <value>
+        <elementReference>email.email</elementReference>
+      </value>
+    </filters>
+    <getFirstRecordOnly>true</getFirstRecordOnly>
+    <object>Contact</object>
+    <storeOutputAutomatically>true</storeOutputAutomatically>
+  </recordLookups>
+  <variables>
+    <name>email</name>
+    <dataType>Record</dataType>
+    <isCollection>false</isCollection>
+    <isInput>true</isInput>
+    <isOutput>false</isOutput>
+    <objectType>Contact</objectType>
+  </variables>
+</Flow>
