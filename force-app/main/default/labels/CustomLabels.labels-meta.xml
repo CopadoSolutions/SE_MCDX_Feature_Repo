@@ -7,4 +7,11 @@
         <shortDescription>HD Label</shortDescription>
         <value>HDlabel</value>
     </labels>
+    <labels>
+        <fullName>Test</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Test</shortDescription>
+        <value>JG</value>
+    </labels>
 </CustomLabels>
