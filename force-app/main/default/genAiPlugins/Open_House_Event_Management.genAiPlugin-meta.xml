@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canEscalate>false</canEscalate>
+    <description>Assist Dreamhouse employees with managing open house events, including scheduling new events, displaying existing schedules, and rescheduling events as needed.</description>
+    <developerName>Open_House_Event_Management</developerName>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__GetRecordDetails</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__QueryRecords</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__SummarizeRecord</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__UpdateRecordFields</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Schedule_Property_Open_House_Event</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>Steps to schedule a new open house event
+
+1. You must have the Property ID (18 character), use topic &quot;Property Management&quot; to find it.
+2. If a broker is desired, you must have the Broker ID (18 character)
+3. Gather all necessary details such as date, time, property. Confirm the details with the user
+4. Call action &quot;Schedule Property Open House Event&quot;</description>
+        <developerName>instruction_stepstosch0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_stepstosch0</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>When rescheduling an open house event, first find the record to update. If there are multiple records ask the user to indicate which one to update.</description>
+        <developerName>instruction_whenresche1</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_whenresche1</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Open House Event Management</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is only to manage open house events by scheduling new events, displaying existing schedules, and rescheduling events as needed.</scope>
+</GenAiPlugin>
