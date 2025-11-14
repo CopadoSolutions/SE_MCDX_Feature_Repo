@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>Giving a range of dates, this flow will find the property open house events for that range</description>
+    <environments>Default</environments>
+    <interviewLabel>ETDH: Find Property Open House By Date Range {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>ETDH: Find Property Open House By Date Range</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>GET010</name>
+        <label>GET010 Find Open Houses</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DateTime__c</field>
+            <operator>GreaterThanOrEqualTo</operator>
+            <value>
+                <elementReference>StartDateTime</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>DateTime__c</field>
+            <operator>LessThanOrEqualTo</operator>
+            <value>
+                <elementReference>EndDateTime</elementReference>
+            </value>
+        </filters>
+        <object>OpenHouse__c</object>
+        <outputReference>OpenHouses</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Broker__c</queriedFields>
+        <queriedFields>DateTime__c</queriedFields>
+        <queriedFields>Property__c</queriedFields>
+        <sortField>DateTime__c</sortField>
+        <sortOrder>Asc</sortOrder>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>GET010</targetReference>
+        </connector>
+    </start>
+    <status>Draft</status>
+    <variables>
+        <description>The range ends at this DateTime</description>
+        <name>EndDateTime</name>
+        <dataType>DateTime</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Open house events during the DateTime range</description>
+        <name>OpenHouses</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <objectType>OpenHouse__c</objectType>
+    </variables>
+    <variables>
+        <description>The range starts at this DateTime</description>
+        <name>StartDateTime</name>
+        <dataType>DateTime</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

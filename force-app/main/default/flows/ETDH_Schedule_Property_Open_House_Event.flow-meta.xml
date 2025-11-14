@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>Flow to create the property open house event</description>
+    <environments>Default</environments>
+    <interviewLabel>ETDH: Schedule Property Open House Event {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>ETDH: Schedule Property Open House Event</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>NEW010</name>
+        <label>NEW010 Create Open House</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <assignRecordIdToReference>PropertyOpenHouseEventID</assignRecordIdToReference>
+        <connector>
+            <targetReference>GET020</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Broker__c</field>
+            <value>
+                <elementReference>BrokerID</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>DateTime__c</field>
+            <value>
+                <elementReference>DateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Property__c</field>
+            <value>
+                <elementReference>PropertyID</elementReference>
+            </value>
+        </inputAssignments>
+        <object>OpenHouse__c</object>
+    </recordCreates>
+    <recordLookups>
+        <name>GET020</name>
+        <label>GET020 Find new record</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>PropertyOpenHouseEventID</elementReference>
+            </value>
+        </filters>
+        <object>OpenHouse__c</object>
+        <outputReference>PropertyOpenHouseEvent</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Broker__c</queriedFields>
+        <queriedFields>DateTime__c</queriedFields>
+        <queriedFields>Property__c</queriedFields>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>NEW010</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Broker ID (optional) is the ID identifying the broker who will hose the open house event. If the value is provided, you must find the ID before calling the flow</description>
+        <name>BrokerID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>DateTime for the open house event</description>
+        <name>DateTime</name>
+        <dataType>DateTime</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Property Id (18 characters) that will host the open house event. You must find the ID before calling the flow</description>
+        <name>PropertyID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>The new property open house event created</description>
+        <name>PropertyOpenHouseEvent</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <objectType>OpenHouse__c</objectType>
+    </variables>
+    <variables>
+        <description>The Id for the record created</description>
+        <name>PropertyOpenHouseEventID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>
