@@ -1,0 +1,13 @@
+.spinner-container {
+    position: relative;
+    min-height: 7rem;
+}
+
+label {
+    font-weight: bold !important;
+}
+
+/* Fix SLDS bug that causes card overflow */
+.slds-form__item {
+    min-width: unset;
+}
