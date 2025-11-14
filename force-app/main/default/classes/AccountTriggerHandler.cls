@@ -12,4 +12,5 @@ public with sharing class AccountTriggerHandler {
             }
         }
     }
+    //new comment
 }
