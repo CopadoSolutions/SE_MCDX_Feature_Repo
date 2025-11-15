@@ -1,0 +1,675 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <attributeMappings>
+        <attributeName>AccountManagement_16j7404600c814c.ResetSecurePassword_179ae783c6fc901.input_verifiedContactID</attributeName>
+        <attributeType>CustomPluginFunctionAttribute</attributeType>
+        <mappingTargetName>VerifiedCustomerId</mappingTargetName>
+        <mappingType>Variable</mappingType>
+    </attributeMappings>
+    <attributeMappings>
+        <attributeName>AccountManagement_16j7404600c814c.UpdateVerifiedContact_1791280bc6a58e1.input_verifiedContactID</attributeName>
+        <attributeType>CustomPluginFunctionAttribute</attributeType>
+        <mappingTargetName>VerifiedCustomerId</mappingTargetName>
+        <mappingType>Variable</mappingType>
+    </attributeMappings>
+    <attributeMappings>
+        <attributeName>CaseManagement_16ja358b4949197.GetCasesForVerifiedContact_1796296127e8919.input_verifiedContactID</attributeName>
+        <attributeType>CustomPluginFunctionAttribute</attributeType>
+        <mappingTargetName>VerifiedCustomerId</mappingTargetName>
+        <mappingType>Variable</mappingType>
+    </attributeMappings>
+    <attributeMappings>
+        <attributeName>CaseManagement_16ja358b4949197.GetCaseByVerifiedCaseNumber_1797cd34acacfa7.input_verifiedContactID</attributeName>
+        <attributeType>CustomPluginFunctionAttribute</attributeType>
+        <mappingTargetName>VerifiedCustomerId</mappingTargetName>
+        <mappingType>Variable</mappingType>
+    </attributeMappings>
+    <attributeMappings>
+        <attributeName>CaseManagement_16ja358b4949197.CreateCaseEnhancedData_17993417ea02c77.input_verifiedCustomerID</attributeName>
+        <attributeType>CustomPluginFunctionAttribute</attributeType>
+        <mappingTargetName>VerifiedCustomerId</mappingTargetName>
+        <mappingType>Variable</mappingType>
+    </attributeMappings>
+    <description>Deliver personalized customer interactions with an autonomous AI agent. Agentforce Service Agent intelligently supports your customers with common inquiries and escalates complex issues.</description>
+    <localActionLinks>
+        <genAiFunctionName>AnswerQuestionsWithKnowledge_16j578e19a4f4c9</genAiFunctionName>
+    </localActionLinks>
+    <localTopicLinks>
+        <genAiPluginName>AccountManagement_16j7404600c814c</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>CaseManagement_16ja358b4949197</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>CloseDeals_16j2e09cbe4cd17</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>GeneralFAQ_16jDk000000Gmb7</genAiPluginName>
+    </localTopicLinks>
+    <localTopics>
+        <fullName>CloseDeals_16j2e09cbe4cd17</fullName>
+        <aiPluginUtterances>
+            <developerName>utterance1</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>utterance1</masterLabel>
+            <utterance>Can you draft a step-by-step plan for this opportunity?</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance2</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>utterance2</masterLabel>
+            <utterance>I need a detailed deal strategy for this opportunity. Can you create one?</utterance>
+        </aiPluginUtterances>
+        <canEscalate>false</canEscalate>
+        <description>Questions related to a user&apos;s query to get a detailed deal strategy, comprehensive steps to advance/close opportunities based on past deals won, pricing information for a particular product, conversation signals or customer sentiment related to a specific account or opportunity to strategize next steps or prepare an execution plan.</description>
+        <developerName>CloseDeals_16j2e09cbe4cd17</developerName>
+        <genAiPluginInstructions>
+            <description>If the user does not specify a deal stage, ask for the current status of the deal.</description>
+            <developerName>Instruction1</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction1</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If the user does not provide key stakeholders, prompt for contact information.</description>
+            <developerName>Instruction2</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction2</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If the user specifies a particular contact or topic, focus on those in the summary.</description>
+            <developerName>Instruction3</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction3</masterLabel>
+            <sortOrder>2</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If the user does not specify a time frame, ask for the desired period for conversation analysis.</description>
+            <developerName>Instruction4</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction4</masterLabel>
+            <sortOrder>3</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If the user does not specify the product, ask for the product name or category.</description>
+            <developerName>Instruction5</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction5</masterLabel>
+            <sortOrder>4</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If the user requests pricing for a product, provide pricing options available.</description>
+            <developerName>Instruction6</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction6</masterLabel>
+            <sortOrder>5</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Break the request down into multiple steps. Think about which steps need to be taken to accomplish the goal. Process each step, then respond to the user.</description>
+            <developerName>Instruction7</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction7</masterLabel>
+            <sortOrder>6</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Never ask the user for an ID. Instead, use the name or ask for the name of the record to use IdentifyRecordByName to get the ID to call other functions.</description>
+            <developerName>Instruction8</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction8</masterLabel>
+            <sortOrder>7</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>There are multiple available data retrieval functions at your disposal. You can use them multiple times if needed. You should use functions as many times as necessary until you have all the data required to fulfill the user&apos;s request. You can perform extra calls if you think you can get additional relevant information.</description>
+            <developerName>Instruction9</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction9</masterLabel>
+            <sortOrder>8</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Before proposing the next steps, ensure all relevant records are fetched. Use IdentifyRecordByName to gather necessary information.</description>
+            <developerName>Instruction10</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction10</masterLabel>
+            <sortOrder>9</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If the user requests for an advice for the best course of action for an opportunity, draft a tactical, step-by-step comprehensive execution plan to strategize next steps to advance the opportunity.</description>
+            <developerName>Instruction11</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction11</masterLabel>
+            <sortOrder>10</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>QueryRecords_179fa8bcb8574c9</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>SummarizeRecord_179bb55e01b94e9</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>GetProductPricing_179594692851bad</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>IdentifyRecordByName_179e140b6dc46f7</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>GetRecordFieldsAndValues_1790c78673052ba</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>CreateClosePlan_179257c9c20e137</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>IdentifyObjectByName_179aec1a19327f4</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>GetProductPricing_179594692851bad</fullName>
+            <description>This action gives the price for the product or provides an estimate for deal based on the provided product details. The action identifyRecordByName must be called directly prior to this action with parameter objectApiName as Product2 to get productID as input, [IF and ONLY IF] price book is provided then action identifyRecordByName must be called directly prior to this action with parameter objectApiName as Pricebook2 to get priceBookID.</description>
+            <developerName>GetProductPricing_179594692851bad</developerName>
+            <invocationTarget>getProductPricing</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>GetProductPricing</localDeveloperName>
+            <masterLabel>Get Product Pricing</masterLabel>
+            <progressIndicatorMessage>Retrieving pricing information</progressIndicatorMessage>
+            <source>Sales__GetProductPricing</source>
+        </localActions>
+        <localActions>
+            <fullName>IdentifyRecordByName_179e140b6dc46f7</fullName>
+            <description>Searches for Salesforce CRM records by name and returns a list of matching Salesforce CRM record IDs.</description>
+            <developerName>IdentifyRecordByName_179e140b6dc46f7</developerName>
+            <invocationTarget>identifyRecordByName</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>IdentifyRecordByName</localDeveloperName>
+            <masterLabel>Identify Record by Name</masterLabel>
+            <source>EmployeeCopilot__IdentifyRecordByName</source>
+        </localActions>
+        <localActions>
+            <fullName>GetRecordFieldsAndValues_1790c78673052ba</fullName>
+            <description>Extracts Salesforce CRM record fields and their corresponding field values from the user input. This action must run before updateRecord to convert user input to a Salesforce sObject.</description>
+            <developerName>GetRecordFieldsAndValues_1790c78673052ba</developerName>
+            <invocationTarget>getRecordFieldsAndValues</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>GetRecordFieldsAndValues</localDeveloperName>
+            <masterLabel>Get Record Fields and Values</masterLabel>
+            <progressIndicatorMessage>Preparing your changes</progressIndicatorMessage>
+            <source>EmployeeCopilot__GetRecordFieldsAndValues</source>
+        </localActions>
+        <localActions>
+            <fullName>CreateClosePlan_179257c9c20e137</fullName>
+            <description>Generates a step-by-step close plan for an Oppty/oppty (also known as Opportunity/opportunity) record in order to close the deal by the target date. The action IdentifyRecordByName must be called prior to this action to get Opportunity Id from the opportunity name.</description>
+            <developerName>CreateClosePlan_179257c9c20e137</developerName>
+            <invocationTarget>createClosePlan</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>CreateClosePlan</localDeveloperName>
+            <masterLabel>Create Close Plan</masterLabel>
+            <progressIndicatorMessage>Creating your close plan</progressIndicatorMessage>
+            <source>Sales__CreateClosePlan</source>
+        </localActions>
+        <localActions>
+            <fullName>IdentifyObjectByName_179aec1a19327f4</fullName>
+            <description>Finds the Salesforce object API name by extracting an object name from the user input.</description>
+            <developerName>IdentifyObjectByName_179aec1a19327f4</developerName>
+            <invocationTarget>identifyObject</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>IdentifyObjectByName</localDeveloperName>
+            <masterLabel>Identify Object by Name</masterLabel>
+            <source>EmployeeCopilot__IdentifyObjectByName</source>
+        </localActions>
+        <localActions>
+            <fullName>QueryRecords_179fa8bcb8574c9</fullName>
+            <description>Finds and retrieves Salesforce CRM records based on user input and specific conditions, such as field values. This action automatically identifies the correct records and object type. e.g. &apos;Find all open opportunities created in the last 5 days sorted by created date.&apos;</description>
+            <developerName>QueryRecords_179fa8bcb8574c9</developerName>
+            <invocationTarget>queryRecords</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>QueryRecords</localDeveloperName>
+            <masterLabel>Query Records</masterLabel>
+            <source>EmployeeCopilot__QueryRecords</source>
+        </localActions>
+        <localActions>
+            <fullName>SummarizeRecord_179bb55e01b94e9</fullName>
+            <description>Summarizes a single Salesforce CRM record. You must call summarizeRecord only if the user explicitly asks for a summary (e.g: &apos;Summary&apos;, &apos;Recap&apos;, &apos;Highlights&apos;). This action should be called only when there isn&apos;t a more specific summarization action.</description>
+            <developerName>SummarizeRecord_179bb55e01b94e9</developerName>
+            <invocationTarget>getRecordSummarizationPrompt</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>SummarizeRecord</localDeveloperName>
+            <masterLabel>Summarize Record</masterLabel>
+            <progressIndicatorMessage>Summarizing</progressIndicatorMessage>
+            <source>EmployeeCopilot__SummarizeRecord</source>
+        </localActions>
+        <localDeveloperName>CloseDeals</localDeveloperName>
+        <masterLabel>Close Deals</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Your job is to only handle tasks related to providing a tactical guide or detailed deal strategy to close deals, which may include answering product-related pricing questions, briefing on customer sentiment in conversations, or suggesting next steps to advance opportunities and close deals strategically.</scope>
+        <source>EmployeeCopilot__CloseDeals</source>
+    </localTopics>
+    <localTopics>
+        <fullName>CaseManagement_16ja358b4949197</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Handles customer inquiries and actions related to support cases, including providing case information, updating existing cases, and creating new cases.</description>
+        <developerName>CaseManagement_16ja358b4949197</developerName>
+        <genAiPluginInstructions>
+            <description>Always format any dates in a human readable format</description>
+            <developerName>Instruction1</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction1</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Do not ever show the Case Id to a customer</description>
+            <developerName>Instruction2</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction2</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If the customer is not known, always ask for their email address and get their Contact record before running any other actions.</description>
+            <developerName>Instruction3</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction3</masterLabel>
+            <sortOrder>2</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>When adding a comment to a case, first retrieve the case details using the case number, ask the user for the exact comment they would like to add and only then add it.</description>
+            <developerName>Instruction4</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction4</masterLabel>
+            <sortOrder>3</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>When sharing case details with the customer, show the following properties as an itemized list :Case number, Subject, Description, and Status. The Subject must exactly match the value stored in the case record. Do not rephrase or regenerate it.</description>
+            <developerName>Instruction5</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction5</masterLabel>
+            <sortOrder>4</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>A case is a record used to help track a customer&apos;s issues. Customers may have questions about the status of the issue or want to provide more information for the case. Cases are usually associated with a contact. Comments are added to provide new information.</description>
+            <developerName>Instruction6</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction6</masterLabel>
+            <sortOrder>5</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Use the Answer Questions with Knowledge action to answer troubleshooting questions.</description>
+            <developerName>Instruction7</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction7</masterLabel>
+            <sortOrder>6</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Acknowledge and validate user concerns with empathy and professionalism.</description>
+            <developerName>Instruction8</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction8</masterLabel>
+            <sortOrder>7</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>When a customer asks you to create a case, please summarize the current conversation. The subject should be less than 7 words and function as a high level overview of what the customer inquired about. The description should be no more than 3 sentences and should provide more depth about what exactly the customer asked, important data, and any other relevant information to help a customer service representative understand the context of this conversation.</description>
+            <developerName>Instruction9</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction9</masterLabel>
+            <sortOrder>8</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>When sharing the Description field from a case record with the customer, summarize it into a condensed, conversational version that is no more than 3 sentences. The summary must preserve all important factual content and intent from the original case description, and must not introduce any new or misleading information.</description>
+            <developerName>Instruction10</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction10</masterLabel>
+            <sortOrder>9</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>AnswerQuestionsWithKnowledge_179e00448c7ecb9</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>CreateCaseEnhancedData_17993417ea02c77</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>GetCaseByVerifiedCaseNumber_1797cd34acacfa7</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>AddCaseComment_179522aaefc7996</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>GetCasesForVerifiedContact_1796296127e8919</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>AnswerQuestionsWithKnowledge_179e00448c7ecb9</fullName>
+            <description>Answers questions about company policies and procedures, troubleshooting steps, or product information. For example: “What is your return policy?” “How do I fix an issue?” or “What features does a product have?”</description>
+            <developerName>AnswerQuestionsWithKnowledge_179e00448c7ecb9</developerName>
+            <invocationTarget>streamKnowledgeSearch</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>AnswerQuestionsWithKnowledge</localDeveloperName>
+            <masterLabel>Answer Questions with Knowledge</masterLabel>
+            <progressIndicatorMessage>Getting answers</progressIndicatorMessage>
+            <source>EmployeeCopilot__AnswerQuestionsWithKnowledge</source>
+        </localActions>
+        <localActions>
+            <fullName>CreateCaseEnhancedData_17993417ea02c77</fullName>
+            <description>Create a case for the customer that&apos;s transferred from the AI agent to a service rep. The case includes all information gathered from the customer, a summary of the progress made by the AI agent, a link to the conversation, and any attachments.</description>
+            <developerName>CreateCaseEnhancedData_17993417ea02c77</developerName>
+            <invocationTarget>SvcCopilotTmpl__CreateCaseEnhancedData</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>true</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>CreateCaseEnhancedData</localDeveloperName>
+            <mappingAttributes>
+                <label>input_verifiedCustomerID</label>
+                <name>input_verifiedCustomerID</name>
+                <parameterName>verifiedCustomerID</parameterName>
+                <parameterType>input</parameterType>
+            </mappingAttributes>
+            <masterLabel>Create Case with Enhanced Data</masterLabel>
+            <source>SvcCopilotTmpl__CreateCaseEnhancedData</source>
+        </localActions>
+        <localActions>
+            <fullName>GetCaseByVerifiedCaseNumber_1797cd34acacfa7</fullName>
+            <description>Returns a case associated with a given contact ID and case number.</description>
+            <developerName>GetCaseByVerifiedCaseNumber_1797cd34acacfa7</developerName>
+            <invocationTarget>SvcCopilotTmpl__GetCaseByVrfyCaseNbr</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>GetCaseByVerifiedCaseNumber</localDeveloperName>
+            <mappingAttributes>
+                <label>input_verifiedContactID</label>
+                <name>input_verifiedContactID</name>
+                <parameterName>verifiedContactID</parameterName>
+                <parameterType>input</parameterType>
+            </mappingAttributes>
+            <masterLabel>Get Case By Verified Case Number</masterLabel>
+            <source>SvcCopilotTmpl__GetCaseByVerifiedCaseNumber</source>
+        </localActions>
+        <localActions>
+            <fullName>AddCaseComment_179522aaefc7996</fullName>
+            <description>Let a customer add a comment to an existing case.</description>
+            <developerName>AddCaseComment_179522aaefc7996</developerName>
+            <invocationTarget>SvcCopilotTmpl__AddCaseComment</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>true</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>AddCaseComment</localDeveloperName>
+            <masterLabel>Add Case Comment</masterLabel>
+            <source>SvcCopilotTmpl__AddCaseComment</source>
+        </localActions>
+        <localActions>
+            <fullName>GetCasesForVerifiedContact_1796296127e8919</fullName>
+            <description>Returns a list of cases related to a given Contact ID.</description>
+            <developerName>GetCasesForVerifiedContact_1796296127e8919</developerName>
+            <invocationTarget>SvcCopilotTmpl__GetCasesVrfyCtct</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>GetCasesForVerifiedContact</localDeveloperName>
+            <mappingAttributes>
+                <label>input_verifiedContactID</label>
+                <name>input_verifiedContactID</name>
+                <parameterName>verifiedContactID</parameterName>
+                <parameterType>input</parameterType>
+            </mappingAttributes>
+            <masterLabel>Get Cases For Verified Contact</masterLabel>
+            <source>SvcCopilotTmpl__GetCasesForVerifiedContact</source>
+        </localActions>
+        <localDeveloperName>CaseManagement</localDeveloperName>
+        <masterLabel>Case Management</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Your job is to help customers retrieve case information, update case comments, and create new cases based on customer requests.</scope>
+        <source>SvcCopilotTmpl__CaseManagement</source>
+    </localTopics>
+    <localTopics>
+        <fullName>AccountManagement_16j7404600c814c</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Handles customer inquiries about changing their contact information and resetting their password.</description>
+        <developerName>AccountManagement_16j7404600c814c</developerName>
+        <genAiPluginInstructions>
+            <description>If the customer is not known, always ask for their email address and get their Contact record before running any other actions.</description>
+            <developerName>Instruction1</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction1</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>When asking a customer for their address, your request of the following required information should be formatted as an itemized list :Street Address, City, State, and Postal Code.</description>
+            <developerName>Instruction2</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction2</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Use the Answer Questions with Knowledge action to answer questions about account issues.</description>
+            <developerName>Instruction3</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction3</masterLabel>
+            <sortOrder>2</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Acknowledge and validate user concerns with empathy and professionalism.</description>
+            <developerName>Instruction4</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction4</masterLabel>
+            <sortOrder>3</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>When changing a customer&apos;s email address, always explicitly prompt for the new email address.</description>
+            <developerName>Instruction5</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction5</masterLabel>
+            <sortOrder>4</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>This is a brand new instruction for this Agent.</description>
+            <developerName>instructions_0_1763246742606</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_0_1763246742606</masterLabel>
+            <sortOrder>5</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>UpdateVerifiedContact_1791280bc6a58e1</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>ResetSecurePassword_179ae783c6fc901</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>AnswerQuestionsWithKnowledge_179eaae4c025130</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>SendMeetingRequest_179c6f252816a0a</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>AnswerQuestionsWithKnowledge_179eaae4c025130</fullName>
+            <description>Answers questions about company policies and procedures, troubleshooting steps, or product information. For example: “What is your return policy?” “How do I fix an issue?” or “What features does a product have?”</description>
+            <developerName>AnswerQuestionsWithKnowledge_179eaae4c025130</developerName>
+            <invocationTarget>streamKnowledgeSearch</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>AnswerQuestionsWithKnowledge</localDeveloperName>
+            <masterLabel>Answer Questions with Knowledge</masterLabel>
+            <progressIndicatorMessage>Getting answers</progressIndicatorMessage>
+            <source>EmployeeCopilot__AnswerQuestionsWithKnowledge</source>
+        </localActions>
+        <localActions>
+            <fullName>SendMeetingRequest_179c6f252816a0a</fullName>
+            <description>Drafts a message to the recipient with possible time slots or a link to access the calendar of the sender to schedule a sales meeting.</description>
+            <developerName>SendMeetingRequest_179c6f252816a0a</developerName>
+            <invocationTarget>sendMeetingRequest</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>SendMeetingRequest</localDeveloperName>
+            <masterLabel>Send Meeting Request</masterLabel>
+            <progressIndicatorMessage>Drafting your meeting request</progressIndicatorMessage>
+            <source>Sales__SendMeetingRequest</source>
+        </localActions>
+        <localActions>
+            <fullName>UpdateVerifiedContact_1791280bc6a58e1</fullName>
+            <description>Updates fields on a customer’s contact record, such as the email address, phone number, or postal address.</description>
+            <developerName>UpdateVerifiedContact_1791280bc6a58e1</developerName>
+            <invocationTarget>SvcCopilotTmpl__UpdateVrfyCtct</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>true</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>UpdateVerifiedContact</localDeveloperName>
+            <mappingAttributes>
+                <label>input_verifiedContactID</label>
+                <name>input_verifiedContactID</name>
+                <parameterName>verifiedContactID</parameterName>
+                <parameterType>input</parameterType>
+            </mappingAttributes>
+            <masterLabel>Update Verified Contact</masterLabel>
+            <source>SvcCopilotTmpl__UpdateVerifiedContact</source>
+        </localActions>
+        <localActions>
+            <fullName>ResetSecurePassword_179ae783c6fc901</fullName>
+            <description>Send a password reset link to the email address associated with the given Contact ID.</description>
+            <developerName>ResetSecurePassword_179ae783c6fc901</developerName>
+            <invocationTarget>SvcCopilotTmpl__ResetScrPassword</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>true</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>ResetSecurePassword</localDeveloperName>
+            <mappingAttributes>
+                <label>input_verifiedContactID</label>
+                <name>input_verifiedContactID</name>
+                <parameterName>verifiedContactID</parameterName>
+                <parameterType>input</parameterType>
+            </mappingAttributes>
+            <masterLabel>Reset Secure Password</masterLabel>
+            <source>SvcCopilotTmpl__ResetSecurePassword</source>
+        </localActions>
+        <localDeveloperName>AccountManagement</localDeveloperName>
+        <masterLabel>Account Management</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Your job is to help a customer reset their password or make updates to their contact information by changing their email address, phone number, or mailing address.</scope>
+        <source>SvcCopilotTmpl__AccountManagement</source>
+    </localTopics>
+    <localTopics>
+        <fullName>GeneralFAQ_16jDk000000Gmb7</fullName>
+        <canEscalate>false</canEscalate>
+        <description>This topic is for helping answer customer&apos;s questions by searching through the knowledge articles and providing information from those articles. The questions can be about the company and its products, policies or business procedures</description>
+        <developerName>GeneralFAQ_16jDk000000Gmb7</developerName>
+        <genAiPluginInstructions>
+            <description>If the customer&apos;s question is too vague or general, ask for more details and clarification to give a better answer.</description>
+            <developerName>requestmoredetails</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>request-more-details</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If you are unable to help the customer even after asking clarifying questions, ask if they want to escalate this issue to a live agent.</description>
+            <developerName>unabletohelpafterclarifying</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>unable-to-help-after-clarifying</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If you are unable to answer customer&apos;s questions, ask if they want to escalate this issue to a live agent.</description>
+            <developerName>unabletoanswerquestions</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>unable-to-answer-questions</masterLabel>
+            <sortOrder>2</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Never provide generic information, advice or troubleshooting steps, unless retrieved from searching knowledge articles.</description>
+            <developerName>avoidgenericinformation</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>avoid-generic-information</masterLabel>
+            <sortOrder>3</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Include sources in your response when available from the knowledge articles, otherwise proceed without them.</description>
+            <developerName>includearticlesources</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>include-article-sources</masterLabel>
+            <sortOrder>4</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>AnswerQuestionsWithKnowledge_179Dk000000CaUV</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>AnswerQuestionsWithKnowledge_179Dk000000CaUV</fullName>
+            <description>Answers questions about company policies and procedures, troubleshooting steps, or product information. For example: “What is your return policy?” “How do I fix an issue?” or “What features does a product have?”</description>
+            <developerName>AnswerQuestionsWithKnowledge_179Dk000000CaUV</developerName>
+            <invocationTarget>streamKnowledgeSearch</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>AnswerQuestionsWithKnowledge</localDeveloperName>
+            <masterLabel>Answer Questions with Knowledge</masterLabel>
+            <progressIndicatorMessage>Getting answers</progressIndicatorMessage>
+            <source>EmployeeCopilot__AnswerQuestionsWithKnowledge</source>
+        </localActions>
+        <localDeveloperName>GeneralFAQ</localDeveloperName>
+        <masterLabel>General FAQ</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Your job is solely to help with issues and answer questions about the company, its products, procedures, or policies by searching knowledge articles.</scope>
+        <source>SvcCopilotTmpl__GeneralFAQ</source>
+    </localTopics>
+    <masterLabel>Abhi&apos;s new agent</masterLabel>
+    <plannerActions>
+        <fullName>AnswerQuestionsWithKnowledge_16j578e19a4f4c9</fullName>
+        <description>Answers questions about company policies and procedures, troubleshooting steps, or product information. For example: “What is your return policy?” “How do I fix an issue?” or “What features does a product have?”</description>
+        <developerName>AnswerQuestionsWithKnowledge_16j578e19a4f4c9</developerName>
+        <invocationTarget>streamKnowledgeSearch</invocationTarget>
+        <invocationTargetType>standardInvocableAction</invocationTargetType>
+        <isConfirmationRequired>false</isConfirmationRequired>
+        <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+        <localDeveloperName>AnswerQuestionsWithKnowledge</localDeveloperName>
+        <masterLabel>Answer Questions with Knowledge</masterLabel>
+        <progressIndicatorMessage>Getting answers</progressIndicatorMessage>
+        <source>EmployeeCopilot__AnswerQuestionsWithKnowledge</source>
+    </plannerActions>
+    <plannerSurfaces>
+        <adaptiveResponseAllowed>true</adaptiveResponseAllowed>
+        <callRecordingAllowed>false</callRecordingAllowed>
+        <surface>SurfaceAction__CustomerWebClient</surface>
+        <surfaceType>CustomerWebClient</surfaceType>
+    </plannerSurfaces>
+    <plannerSurfaces>
+        <adaptiveResponseAllowed>true</adaptiveResponseAllowed>
+        <callRecordingAllowed>false</callRecordingAllowed>
+        <surface>SurfaceAction__Messaging</surface>
+        <surfaceType>Messaging</surfaceType>
+    </plannerSurfaces>
+    <plannerType>AiCopilot__ReAct</plannerType>
+    <ruleExpressionAssignments>
+        <ruleExpressionName>Verified_User</ruleExpressionName>
+        <targetName>AccountManagement_16j7404600c814c</targetName>
+        <targetType>Plugin</targetType>
+    </ruleExpressionAssignments>
+    <ruleExpressionAssignments>
+        <ruleExpressionName>Verified_User</ruleExpressionName>
+        <targetName>CaseManagement_16ja358b4949197</targetName>
+        <targetType>Plugin</targetType>
+    </ruleExpressionAssignments>
+    <ruleExpressions>
+        <conditions>
+            <leftOperand>isVerified</leftOperand>
+            <leftOperandType>Variable</leftOperandType>
+            <operator>equal</operator>
+            <rightOperandValue>true</rightOperandValue>
+        </conditions>
+        <expression>Verified_User</expression>
+        <expressionLabel>Verified User</expressionLabel>
+        <expressionName>Verified_User</expressionName>
+        <expressionType>sel</expressionType>
+    </ruleExpressions>
+</GenAiPlannerBundle>
