@@ -40,6 +40,9 @@
     <localTopicLinks>
         <genAiPluginName>CaseManagement_16jDk000000Gmb2</genAiPluginName>
     </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>CloseDeals_16jDk000000Gmb2</genAiPluginName>
+    </localTopicLinks>
     <localTopics>
         <fullName>AccountManagement_16jDk000000Gmb2</fullName>
         <canEscalate>false</canEscalate>
@@ -80,6 +83,13 @@
             <masterLabel>Instruction5</masterLabel>
             <sortOrder>4</sortOrder>
         </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>This is a brand new instruction for this Agent.</description>
+            <developerName>instructions_0_1763246742606</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_0_1763246742606</masterLabel>
+            <sortOrder>5</sortOrder>
+        </genAiPluginInstructions>
         <language>en_US</language>
         <localActionLinks>
             <functionName>UpdateVerifiedContact_179Dk000000CaUH</functionName>
@@ -89,6 +99,9 @@
         </localActionLinks>
         <localActionLinks>
             <functionName>AnswerQuestionsWithKnowledge_179Dk000000CaUH</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>SendMeetingRequest_179Dk000000CaUH</functionName>
         </localActionLinks>
         <localActions>
             <fullName>UpdateVerifiedContact_179Dk000000CaUH</fullName>
@@ -138,6 +151,19 @@
             <masterLabel>Answer Questions with Knowledge</masterLabel>
             <progressIndicatorMessage>Getting answers</progressIndicatorMessage>
             <source>EmployeeCopilot__AnswerQuestionsWithKnowledge</source>
+        </localActions>
+        <localActions>
+            <fullName>SendMeetingRequest_179Dk000000CaUH</fullName>
+            <description>Drafts a message to the recipient with possible time slots or a link to access the calendar of the sender to schedule a sales meeting.</description>
+            <developerName>SendMeetingRequest_179Dk000000CaUH</developerName>
+            <invocationTarget>sendMeetingRequest</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>SendMeetingRequest</localDeveloperName>
+            <masterLabel>Send Meeting Request</masterLabel>
+            <progressIndicatorMessage>Drafting your meeting request</progressIndicatorMessage>
+            <source>Sales__SendMeetingRequest</source>
         </localActions>
         <localDeveloperName>AccountManagement</localDeveloperName>
         <masterLabel>Account Management</masterLabel>
@@ -320,6 +346,216 @@
         <pluginType>Topic</pluginType>
         <scope>Your job is to help customers retrieve case information, update case comments, and create new cases based on customer requests.</scope>
         <source>SvcCopilotTmpl__CaseManagement</source>
+    </localTopics>
+    <localTopics>
+        <fullName>CloseDeals_16jDk000000Gmb2</fullName>
+        <aiPluginUtterances>
+            <developerName>utterance1</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>utterance1</masterLabel>
+            <utterance>Can you draft a step-by-step plan for this opportunity?</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance2</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>utterance2</masterLabel>
+            <utterance>I need a detailed deal strategy for this opportunity. Can you create one?</utterance>
+        </aiPluginUtterances>
+        <canEscalate>false</canEscalate>
+        <description>Questions related to a user&apos;s query to get a detailed deal strategy, comprehensive steps to advance/close opportunities based on past deals won, pricing information for a particular product, conversation signals or customer sentiment related to a specific account or opportunity to strategize next steps or prepare an execution plan.</description>
+        <developerName>CloseDeals_16jDk000000Gmb2</developerName>
+        <genAiPluginInstructions>
+            <description>If the user does not specify a deal stage, ask for the current status of the deal.</description>
+            <developerName>Instruction1</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction1</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If the user does not provide key stakeholders, prompt for contact information.</description>
+            <developerName>Instruction2</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction2</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If the user specifies a particular contact or topic, focus on those in the summary.</description>
+            <developerName>Instruction3</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction3</masterLabel>
+            <sortOrder>2</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If the user does not specify a time frame, ask for the desired period for conversation analysis.</description>
+            <developerName>Instruction4</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction4</masterLabel>
+            <sortOrder>3</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If the user does not specify the product, ask for the product name or category.</description>
+            <developerName>Instruction5</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction5</masterLabel>
+            <sortOrder>4</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If the user requests pricing for a product, provide pricing options available.</description>
+            <developerName>Instruction6</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction6</masterLabel>
+            <sortOrder>5</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Break the request down into multiple steps. Think about which steps need to be taken to accomplish the goal. Process each step, then respond to the user.</description>
+            <developerName>Instruction7</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction7</masterLabel>
+            <sortOrder>6</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Never ask the user for an ID. Instead, use the name or ask for the name of the record to use IdentifyRecordByName to get the ID to call other functions.</description>
+            <developerName>Instruction8</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction8</masterLabel>
+            <sortOrder>7</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>There are multiple available data retrieval functions at your disposal. You can use them multiple times if needed. You should use functions as many times as necessary until you have all the data required to fulfill the user&apos;s request. You can perform extra calls if you think you can get additional relevant information.</description>
+            <developerName>Instruction9</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction9</masterLabel>
+            <sortOrder>8</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Before proposing the next steps, ensure all relevant records are fetched. Use IdentifyRecordByName to gather necessary information.</description>
+            <developerName>Instruction10</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction10</masterLabel>
+            <sortOrder>9</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If the user requests for an advice for the best course of action for an opportunity, draft a tactical, step-by-step comprehensive execution plan to strategize next steps to advance the opportunity.</description>
+            <developerName>Instruction11</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction11</masterLabel>
+            <sortOrder>10</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>QueryRecords_179Dk000000CaUL</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>SummarizeRecord_179Dk000000CaUL</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>GetProductPricing_179Dk000000CaUL</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>IdentifyRecordByName_179Dk000000CaUL</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>GetRecordFieldsAndValues_179Dk000000CaUL</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>CreateClosePlan_179Dk000000CaUL</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>IdentifyObjectByName_179Dk000000CaUL</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>GetProductPricing_179Dk000000CaUL</fullName>
+            <description>This action gives the price for the product or provides an estimate for deal based on the provided product details. The action identifyRecordByName must be called directly prior to this action with parameter objectApiName as Product2 to get productID as input, [IF and ONLY IF] price book is provided then action identifyRecordByName must be called directly prior to this action with parameter objectApiName as Pricebook2 to get priceBookID.</description>
+            <developerName>GetProductPricing_179Dk000000CaUL</developerName>
+            <invocationTarget>getProductPricing</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>GetProductPricing</localDeveloperName>
+            <masterLabel>Get Product Pricing</masterLabel>
+            <progressIndicatorMessage>Retrieving pricing information</progressIndicatorMessage>
+            <source>Sales__GetProductPricing</source>
+        </localActions>
+        <localActions>
+            <fullName>IdentifyRecordByName_179Dk000000CaUL</fullName>
+            <description>Searches for Salesforce CRM records by name and returns a list of matching Salesforce CRM record IDs.</description>
+            <developerName>IdentifyRecordByName_179Dk000000CaUL</developerName>
+            <invocationTarget>identifyRecordByName</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>IdentifyRecordByName</localDeveloperName>
+            <masterLabel>Identify Record by Name</masterLabel>
+            <source>EmployeeCopilot__IdentifyRecordByName</source>
+        </localActions>
+        <localActions>
+            <fullName>GetRecordFieldsAndValues_179Dk000000CaUL</fullName>
+            <description>Extracts Salesforce CRM record fields and their corresponding field values from the user input. This action must run before updateRecord to convert user input to a Salesforce sObject.</description>
+            <developerName>GetRecordFieldsAndValues_179Dk000000CaUL</developerName>
+            <invocationTarget>getRecordFieldsAndValues</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>GetRecordFieldsAndValues</localDeveloperName>
+            <masterLabel>Get Record Fields and Values</masterLabel>
+            <progressIndicatorMessage>Preparing your changes</progressIndicatorMessage>
+            <source>EmployeeCopilot__GetRecordFieldsAndValues</source>
+        </localActions>
+        <localActions>
+            <fullName>CreateClosePlan_179Dk000000CaUL</fullName>
+            <description>Generates a step-by-step close plan for an Oppty/oppty (also known as Opportunity/opportunity) record in order to close the deal by the target date. The action IdentifyRecordByName must be called prior to this action to get Opportunity Id from the opportunity name.</description>
+            <developerName>CreateClosePlan_179Dk000000CaUL</developerName>
+            <invocationTarget>createClosePlan</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>CreateClosePlan</localDeveloperName>
+            <masterLabel>Create Close Plan</masterLabel>
+            <progressIndicatorMessage>Creating your close plan</progressIndicatorMessage>
+            <source>Sales__CreateClosePlan</source>
+        </localActions>
+        <localActions>
+            <fullName>IdentifyObjectByName_179Dk000000CaUL</fullName>
+            <description>Finds the Salesforce object API name by extracting an object name from the user input.</description>
+            <developerName>IdentifyObjectByName_179Dk000000CaUL</developerName>
+            <invocationTarget>identifyObject</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>IdentifyObjectByName</localDeveloperName>
+            <masterLabel>Identify Object by Name</masterLabel>
+            <source>EmployeeCopilot__IdentifyObjectByName</source>
+        </localActions>
+        <localActions>
+            <fullName>QueryRecords_179Dk000000CaUL</fullName>
+            <description>Finds and retrieves Salesforce CRM records based on user input and specific conditions, such as field values. This action automatically identifies the correct records and object type. e.g. &apos;Find all open opportunities created in the last 5 days sorted by created date.&apos;</description>
+            <developerName>QueryRecords_179Dk000000CaUL</developerName>
+            <invocationTarget>queryRecords</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>QueryRecords</localDeveloperName>
+            <masterLabel>Query Records</masterLabel>
+            <source>EmployeeCopilot__QueryRecords</source>
+        </localActions>
+        <localActions>
+            <fullName>SummarizeRecord_179Dk000000CaUL</fullName>
+            <description>Summarizes a single Salesforce CRM record. You must call summarizeRecord only if the user explicitly asks for a summary (e.g: &apos;Summary&apos;, &apos;Recap&apos;, &apos;Highlights&apos;). This action should be called only when there isn&apos;t a more specific summarization action.</description>
+            <developerName>SummarizeRecord_179Dk000000CaUL</developerName>
+            <invocationTarget>getRecordSummarizationPrompt</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>SummarizeRecord</localDeveloperName>
+            <masterLabel>Summarize Record</masterLabel>
+            <progressIndicatorMessage>Summarizing</progressIndicatorMessage>
+            <source>EmployeeCopilot__SummarizeRecord</source>
+        </localActions>
+        <localDeveloperName>CloseDeals</localDeveloperName>
+        <masterLabel>Close Deals</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Your job is to only handle tasks related to providing a tactical guide or detailed deal strategy to close deals, which may include answering product-related pricing questions, briefing on customer sentiment in conversations, or suggesting next steps to advance opportunities and close deals strategically.</scope>
+        <source>EmployeeCopilot__CloseDeals</source>
     </localTopics>
     <masterLabel>Abhi&apos;s new agent</masterLabel>
     <plannerActions>
