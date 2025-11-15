@@ -1,0 +1,16 @@
+{
+  "required" : [ "recordId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "recordId" : {
+      "title" : "{!$Label.InvocableActionSummarizeRecord.inputRecordIdLabel}",
+      "description" : "{!$Label.InvocableActionSummarizeRecord.inputRecordIdDescription}",
+      "lightning:type" : "lightning__recordIdType",
+      "einstein:description" : "The single ID of a Salesforce CRM record to create the summary for. For example recordId, record_id, recordIds[0], accountId.",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType",
+  "lightning:textIndexed" : true
+}

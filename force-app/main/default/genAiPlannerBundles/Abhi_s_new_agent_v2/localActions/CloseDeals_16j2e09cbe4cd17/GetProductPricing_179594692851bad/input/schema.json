@@ -1,0 +1,29 @@
+{
+  "required" : [ "productID" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "productID" : {
+      "title" : "Product ID",
+      "description" : "ID of the product for which pricing details are requested.",
+      "lightning:type" : "lightning__recordIdType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "priceBookID" : {
+      "title" : "Price book ID",
+      "description" : "ID of the price book containing the pricing details of the requested product.",
+      "lightning:type" : "lightning__recordIdType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "quantity" : {
+      "title" : "Quantity",
+      "description" : "The requested quantity of the product.",
+      "lightning:type" : "lightning__integerType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType",
+  "lightning:textIndexed" : true
+}
