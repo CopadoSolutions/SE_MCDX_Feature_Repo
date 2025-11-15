@@ -1,0 +1,15 @@
+{
+  "required" : [ "opportunityId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "opportunityId" : {
+      "title" : "Opportunity ID",
+      "description" : "The ID of the opportunity for which the close plan is to be generated.",
+      "lightning:type" : "lightning__recordIdType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType",
+  "lightning:textIndexed" : true
+}
