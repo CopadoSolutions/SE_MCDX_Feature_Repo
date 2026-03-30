@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataSrcDataModelFieldMap xmlns="http://soap.sforce.com/2006/04/metadata">
+    <filterApplied>false</filterApplied>
+    <filterOperationType>Equal</filterOperationType>
+    <masterLabel>DK01Resort_Information1Col2Resort_InformationCol2AoZOyCoFipdnufd</masterLabel>
+    <sourceField>Resort_Information1.Col2__c</sourceField>
+    <targetField>Resort_Information__dlm.Col2__c</targetField>
+    <templateVersion>1</templateVersion>
+    <versionNumber>1.0</versionNumber>
+</DataSrcDataModelFieldMap>
