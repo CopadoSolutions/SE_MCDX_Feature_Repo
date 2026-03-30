@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataPackageKitObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>DK01</masterLabel>
+    <parentDataPackageKitDefinitionName>DK01</parentDataPackageKitDefinitionName>
+    <referenceObjectName>Resort_Information1</referenceObjectName>
+    <referenceObjectType>DataKitObjectTemplate</referenceObjectType>
+</DataPackageKitObject>

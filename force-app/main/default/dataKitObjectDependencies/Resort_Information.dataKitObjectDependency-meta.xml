@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataKitObjectDependency xmlns="http://soap.sforce.com/2006/04/metadata">
+    <dataPackageKitDef>DK01</dataPackageKitDef>
+    <developerName>Resort_Information</developerName>
+    <masterLabel>Resort_Information__dll</masterLabel>
+    <sourceObject>Resort_Information1</sourceObject>
+    <sourceObjectType>DataSourceObject</sourceObjectType>
+    <targetObject>Resort_Information1</targetObject>
+</DataKitObjectDependency>
