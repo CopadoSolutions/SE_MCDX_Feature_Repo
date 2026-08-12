@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataPackageKitDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <dataKitSource>LOCAL</dataKitSource>
+    <dataKitType>NONE</dataKitType>
+    <dataSpaceDefinitionDevName>default</dataSpaceDefinitionDevName>
+    <deploymentOrder>{&quot;isAutoSequence&quot;:true,&quot;sequence&quot;:[{&quot;devName&quot;:&quot;Abhi_Test_Oct_6&quot;,&quot;type&quot;:&quot;MktDataLakeObject&quot;,&quot;id&quot;:&quot;0gODk0000004C9b&quot;}]}</deploymentOrder>
+    <developerName>DK03</developerName>
+    <isDeployed>false</isDeployed>
+    <isEnabled>false</isEnabled>
+    <masterLabel>DK03</masterLabel>
+    <useDeterministicNaming>false</useDeterministicNaming>
+    <versionNumber>2.0</versionNumber>
+</DataPackageKitDefinition>

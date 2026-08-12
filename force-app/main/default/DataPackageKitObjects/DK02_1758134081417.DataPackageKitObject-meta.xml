@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataPackageKitObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>DK02</masterLabel>
+    <parentDataPackageKitDefinitionName>DK02</parentDataPackageKitDefinitionName>
+    <referenceObjectName>Abhi_Test</referenceObjectName>
+    <referenceObjectType>DataSourceObject</referenceObjectType>
+</DataPackageKitObject>
