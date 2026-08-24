@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <agentAccesses>
+        <agentName>Product_Catalog_Assistant</agentName>
+        <enabled>true</enabled>
+    </agentAccesses>
+    <classAccesses>
+        <apexClass>ProductCatalogSearch</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ProductPriceLookup</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <description>Allows employees to run Product Catalog Assistant Apex actions.</description>
+    <label>Product Catalog Assistant Access</label>
+</PermissionSet>
