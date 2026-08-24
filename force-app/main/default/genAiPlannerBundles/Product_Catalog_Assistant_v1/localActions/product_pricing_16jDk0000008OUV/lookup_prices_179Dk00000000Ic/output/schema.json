@@ -1,0 +1,26 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "found" : {
+      "title" : "Price Found",
+      "description" : "Whether at least one active price entry matched",
+      "lightning:type" : "lightning__booleanType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : false
+    },
+    "prices" : {
+      "title" : "Prices",
+      "description" : "Active prices across active price books",
+      "maxItems" : 2000,
+      "items" : {
+        "lightning:type" : "@apexClassType/c__ProductPriceLookup$PriceInfo"
+      },
+      "lightning:type" : "lightning__listType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : true,
+      "copilotAction:isUsedByPlanner" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}
