@@ -1,0 +1,21 @@
+{
+  "required" : [ "searchTerm" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "family" : {
+      "title" : "Product Family",
+      "description" : "Optional exact family such as Solar Panels, Batteries, Merchandise, Service, Turbines, or Home Solutions",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "searchTerm" : {
+      "title" : "Search Term",
+      "description" : "Product name, product code, or description phrase",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}
