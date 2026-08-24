@@ -22,6 +22,8 @@ variables:
         description: "Salesforce Product2 ID of the top live search match"
     product_found: mutable boolean = False
         description: "Whether the latest product search returned at least one live product"
+    price_requested: mutable boolean = False
+        description: "Whether the current employee request explicitly asks for product pricing"
 
 language:
     default_locale: "en_US"
@@ -60,7 +62,9 @@ subagent product_search:
         instructions: |
             Search the live catalog; do not rely on general knowledge.
             First use capture_search_term to extract the employee's product name,
-            product code, or description phrase. Then use search_live_catalog.
+            product code, or description phrase and whether the request explicitly
+            asks for a price, cost, or amount. Set price_requested to False for
+            catalog-only searches. Then use search_live_catalog.
             Pass a family only when the employee explicitly names one.
             After receiving results, write direct text listing each product's name,
             productCode, family, and productDescription exactly as returned.
@@ -69,8 +73,9 @@ subagent product_search:
             the employee provides a new search. Do not use the show_command tool.
         actions:
             capture_search_term: @utils.setVariables
-                description: "Capture the employee's product name, code, or description phrase before searching"
+                description: "Capture the product search phrase and whether the employee explicitly requested pricing"
                 with search_term = ...
+                with price_requested = ...
             search_live_catalog: @actions.search_products
                 description: "Search active Product2 records using the captured term and an optional explicit family"
                 with searchTerm = @variables.search_term
@@ -82,7 +87,7 @@ subagent product_search:
                 description: "Route a new or different employee request"
 
     after_reasoning:
-        if @variables.product_found == True:
+        if @variables.product_found == True and @variables.price_requested == True:
             transition to @subagent.product_pricing
 
     actions:

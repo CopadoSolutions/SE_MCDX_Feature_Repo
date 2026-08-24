@@ -129,26 +129,43 @@ public with sharing class ProductCatalogSearch {
     }
 
     private static Integer matchScore(Product2 product, String term) {
-        String name = normalize(product.Name);
-        String code = normalize(product.ProductCode);
-        String productDescription = normalize(product.Description);
+        String searchText = normalizeSearchText(term);
+        String name = normalizeSearchText(product.Name);
+        String code = normalizeSearchText(product.ProductCode);
+        String productDescription = normalizeSearchText(product.Description);
 
-        if (code == term) {
+        if (code == searchText) {
             return 0;
         }
-        if (name == term) {
+        if (name == searchText) {
             return 1;
         }
-        if (code.contains(term)) {
+        if (code.contains(searchText)) {
             return 2;
         }
-        if (name.contains(term)) {
+        if (name.contains(searchText)) {
             return 3;
         }
-        if (productDescription.contains(term)) {
+        if (containsAllTokens(name, searchText) || containsAllTokens(code, searchText)) {
             return 4;
         }
+        if (productDescription.contains(searchText) ||
+            containsAllTokens(productDescription, searchText)) {
+            return 5;
+        }
         return null;
+    }
+
+    private static Boolean containsAllTokens(String candidate, String searchText) {
+        if (String.isBlank(candidate) || String.isBlank(searchText)) {
+            return false;
+        }
+        for (String token : searchText.split(' ')) {
+            if (!String.isBlank(token) && !candidate.contains(token)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private static ProductInfo toProductInfo(Product2 product) {
@@ -165,6 +182,10 @@ public with sharing class ProductCatalogSearch {
         return String.isBlank(value) ? '' : value.trim().toLowerCase();
     }
 
+    private static String normalizeSearchText(String value) {
+        return normalize(value).replaceAll('[^a-z0-9]+', ' ').trim();
+    }
+
     private class RankedProduct implements Comparable {
         private Product2 product;
         private Integer score;
@@ -179,7 +200,11 @@ public with sharing class ProductCatalogSearch {
             if (score != other.score) {
                 return score < other.score ? -1 : 1;
             }
-            return normalize(product.Name).compareTo(normalize(other.product.Name));
+            Integer nameComparison =
+                normalize(product.Name).compareTo(normalize(other.product.Name));
+            return nameComparison != 0
+                ? nameComparison
+                : normalize(product.ProductCode).compareTo(normalize(other.product.ProductCode));
         }
     }
 }

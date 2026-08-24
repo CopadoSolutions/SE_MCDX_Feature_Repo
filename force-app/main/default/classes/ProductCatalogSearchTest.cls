@@ -18,6 +18,20 @@ private class ProductCatalogSearchTest {
                 IsActive = true
             ),
             new Product2(
+                Name = 'Cirrus Crewneck T-Shirt',
+                ProductCode = 'D-1000',
+                Family = 'Merchandise',
+                Description = 'Base crewneck product',
+                IsActive = true
+            ),
+            new Product2(
+                Name = 'Cirrus Crewneck T-Shirt',
+                ProductCode = 'D-1000-M',
+                Family = 'Merchandise',
+                Description = 'Medium crewneck product',
+                IsActive = true
+            ),
+            new Product2(
                 Name = 'Retired Battery',
                 ProductCode = 'B-OLD',
                 Family = 'Batteries',
@@ -44,6 +58,35 @@ private class ProductCatalogSearchTest {
         System.assertEquals('High Capacity Battery', results[0].products[0].name);
         System.assertEquals('Stores renewable energy', results[0].products[0].productDescription);
         System.assertEquals(results[0].products[0].productId, results[0].topProductId);
+    }
+
+    @IsTest
+    static void wordOrderAndPunctuationDifferencesStillMatch() {
+        ProductCatalogSearch.Request request = new ProductCatalogSearch.Request();
+        request.searchTerm = 'high capacity battery';
+
+        Test.startTest();
+        ProductCatalogSearch.Result result =
+            ProductCatalogSearch.search(new List<ProductCatalogSearch.Request>{ request })[0];
+        Test.stopTest();
+
+        System.assertEquals(true, result.found);
+        System.assertEquals('B-1000', result.products[0].productCode);
+    }
+
+    @IsTest
+    static void tiedNamesUseProductCodeForDeterministicTopResult() {
+        ProductCatalogSearch.Request request = new ProductCatalogSearch.Request();
+        request.searchTerm = 'Cirrus Crewneck T-Shirt';
+
+        Test.startTest();
+        ProductCatalogSearch.Result result =
+            ProductCatalogSearch.search(new List<ProductCatalogSearch.Request>{ request })[0];
+        Test.stopTest();
+
+        System.assertEquals(true, result.found);
+        System.assertEquals('D-1000', result.products[0].productCode);
+        System.assertEquals(result.products[0].productId, result.topProductId);
     }
 
     @IsTest
