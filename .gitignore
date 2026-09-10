@@ -80,3 +80,5 @@ package-lock.json
 .cursor/
 agents/
 skills-lock.json
+.agentia_quality_gates.cmd
+.agentia_quality_gates.sh
