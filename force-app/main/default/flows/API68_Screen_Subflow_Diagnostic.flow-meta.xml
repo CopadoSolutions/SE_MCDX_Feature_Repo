@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>68.0</apiVersion>
+    <description>API 68 Screen Flow diagnostic that invokes an API 68 autolaunched subflow.</description>
+    <environments>Default</environments>
+    <interviewLabel>API 68 Screen Subflow Diagnostic {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>API 68 Screen Subflow Diagnostic</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <runInMode>UserMode</runInMode>
+    <screens>
+        <name>Collect_Diagnostic_Input</name>
+        <label>Collect Diagnostic Input</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Invoke_API68_Subflow</targetReference>
+        </connector>
+        <fields>
+            <name>Customer_Input</name>
+            <dataType>String</dataType>
+            <fieldText>Diagnostic Input</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Display_Subflow_Output</name>
+        <label>Display Subflow Output</label>
+        <locationX>176</locationX>
+        <locationY>402</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Subflow_Output</name>
+            <fieldText>&lt;p&gt;Subflow output: {!Invoke_API68_Subflow.outputMessage}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Collect_Diagnostic_Input</targetReference>
+        </connector>
+    </start>
+    <status>Draft</status>
+    <subflows>
+        <name>Invoke_API68_Subflow</name>
+        <label>Invoke API 68 Subflow</label>
+        <locationX>176</locationX>
+        <locationY>268</locationY>
+        <connector>
+            <targetReference>Display_Subflow_Output</targetReference>
+        </connector>
+        <flowName>API68_User_Mode_Subflow</flowName>
+        <inputAssignments>
+            <name>inputMessage</name>
+            <value>
+                <elementReference>Customer_Input</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+</Flow>
