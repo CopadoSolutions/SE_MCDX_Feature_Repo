@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>68.0</apiVersion>
+    <description>Diagnostic API 68 flow that exercises the FlowStart maxBatchSize metadata field.</description>
+    <environments>Default</environments>
+    <interviewLabel>API 68 Max Batch Size Diagnostic {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>API 68 Max Batch Size Diagnostic</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <maxBatchSize>50</maxBatchSize>
+        <object>Account</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Draft</status>
+</Flow>
