@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Is_Opportunity_Renewal</name>
+        <label>Is Opportunity Renewal</label>
+        <locationX>182</locationX>
+        <locationY>611</locationY>
+        <defaultConnector>
+            <targetReference>Update_Opportunity_0_0</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Opportunity_is_Renewal</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Renewal</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Opportunity_0</targetReference>
+            </connector>
+            <label>Opportunity is Renewal</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Opportunity_Record_Type</name>
+        <label>Opportunity Record Type</label>
+        <locationX>380</locationX>
+        <locationY>395</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Non_Essentials</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Essentials</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Copado_Pricebook</targetReference>
+            </connector>
+            <label>Non-Essentials</label>
+        </rules>
+    </decisions>
+    <description>v8: US-0001241 - Account Name truncation now accounts for suffix length so Opportunity Name never exceeds 120 characters
+v7: SS (NSG) - Updated logic to account for character limit on Opp Name
+v6: SS (NSG) - Tweak to Opp Name logic
+v5: SS (NSG) - Added &quot;Standard Updates&quot; node</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>AmendmentSuffix</name>
+        <dataType>String</dataType>
+        <expression>&apos; - Amendment to Contract #&apos; + {!$Record.SBQQ__AmendedContract__r.ContractNumber} + &apos; - &apos; + TEXT(YEAR(TODAY()))</expression>
+    </formulas>
+    <formulas>
+        <name>OpportunityNameLogic</name>
+        <dataType>String</dataType>
+        <expression>IF(
+NOT(ISBLANK({!$Record.SBQQ__AmendedContract__c})), LEFT({!$Record.Account.Name}, 120 - LEN({!AmendmentSuffix})) + {!AmendmentSuffix},
+
+IF(NOT(ISBLANK({!$Record.SBQQ__RenewedContract__c})), LEFT({!$Record.Account.Name}, 120 - LEN({!RenewalSuffix})) + {!RenewalSuffix},
+
+{!$Record.Name}
+))</expression>
+    </formulas>
+    <formulas>
+        <name>RenewalSuffix</name>
+        <dataType>String</dataType>
+        <expression>&apos; - Renewal #&apos; + {!$Record.SBQQ__RenewedContract__r.ContractNumber} + &apos; - &apos; + TEXT(YEAR({!$Record.SBQQ__RenewedContract__r.EndDate}))</expression>
+    </formulas>
+    <interviewLabel>Opportunity Creation Automation {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Opportunity Creation Automation</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Copado_Pricebook</name>
+        <label>Get Copado Pricebook</label>
+        <locationX>182</locationX>
+        <locationY>503</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Is_Opportunity_Renewal</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Copado Pricebook</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Pricebook2</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Standard_Updates</name>
+        <label>Standard Updates</label>
+        <locationX>380</locationX>
+        <locationY>287</locationY>
+        <connector>
+            <targetReference>Opportunity_Record_Type</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>OpportunityNameLogic</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Opportunity_0</name>
+        <label>Update Opportunity</label>
+        <locationX>50</locationX>
+        <locationY>719</locationY>
+        <inputAssignments>
+            <field>Pricebook2Id</field>
+            <value>
+                <elementReference>Get_Copado_Pricebook.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>SBQQ__QuotePricebookId__c</field>
+            <value>
+                <elementReference>Get_Copado_Pricebook.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type</field>
+            <value>
+                <stringValue>Renewal</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Opportunity_0_0</name>
+        <label>Update Opportunity</label>
+        <locationX>314</locationX>
+        <locationY>719</locationY>
+        <inputAssignments>
+            <field>Pricebook2Id</field>
+            <value>
+                <elementReference>Get_Copado_Pricebook.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>SBQQ__QuotePricebookId__c</field>
+            <value>
+                <elementReference>Get_Copado_Pricebook.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>254</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Standard_Updates</targetReference>
+        </connector>
+        <object>Opportunity</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>
