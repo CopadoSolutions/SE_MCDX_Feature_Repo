@@ -26,9 +26,6 @@
     <locationX>176</locationX>
     <locationY>0</locationY>
     <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-    <connector>
-      <targetReference>End</targetReference>
-    </connector>
     <filterLogic>and</filterLogic>
     <filters>
       <field>Email</field>
@@ -43,7 +40,7 @@
   </recordLookups>
   <variables>
     <name>email</name>
-    <dataType>Record</dataType>
+    <dataType>SObject</dataType>
     <isCollection>false</isCollection>
     <isInput>true</isInput>
     <isOutput>false</isOutput>

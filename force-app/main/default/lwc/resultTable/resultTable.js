@@ -6,9 +6,6 @@ import VERSION_DATA_FIELD from '@salesforce/schema/ContentVersion.VersionData';
 import TITLE_FIELD from '@salesforce/schema/ContentDocumentLink.ContentDocument.Title';
 import LATEST_PUBLISHED_VERSION_FIELD from '@salesforce/schema/ContentDocumentLink.ContentDocument.LatestPublishedVersionId';
 
-import jsyamllib from "@salesforce/resourceUrl/jsyamllib";
-import { loadScript } from 'lightning/platformResourceLoader';
-
 export default class ResultTable extends LightningElement {
   @api recordId;
   showTable = false;
@@ -17,7 +14,6 @@ export default class ResultTable extends LightningElement {
   _versionId;
   type;
   result = {};
-  scriptsLoaded = false;
   formattedJson;
   @track filteredJson = null;
   @track violationCounts = null;
@@ -62,21 +58,6 @@ export default class ResultTable extends LightningElement {
       }
       return;
     }
-  }
-
-  async connectedCallback() {
-    if (!this.scriptsLoaded) {
-      await loadScript(this, jsyamllib);
-      this.scriptsLoaded = true;
-    }
-  }
-
-  get yamlData() {
-    if (this.isYAML && this.scriptsLoaded) {
-      return jsyaml.dump(this.formattedJson);
-    }
-
-    return '';
   }
 
   get recordCount() {

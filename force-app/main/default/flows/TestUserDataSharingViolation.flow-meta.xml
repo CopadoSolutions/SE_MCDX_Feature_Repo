@@ -26,9 +26,6 @@
     <locationX>176</locationX>
     <locationY>0</locationY>
     <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-    <connector>
-      <targetReference>End</targetReference>
-    </connector>
     <filterLogic>and</filterLogic>
     <filters>
       <field>Email__c</field>
