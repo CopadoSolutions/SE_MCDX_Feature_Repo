@@ -75,3 +75,10 @@ sfdx-source/untracked/
 package.json
 node_modules/
 package-lock.json
+.agentia/
+.agents/
+.cursor/
+agents/
+skills-lock.json
+.agentia_quality_gates.cmd
+.agentia_quality_gates.sh
