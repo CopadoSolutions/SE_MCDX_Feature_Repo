@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <apiVersion>68.0</apiVersion>
-    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <apiVersion>67.0</apiVersion>
     <description>Deployable API 68 screen flow that invokes an existing autolaunched subflow.</description>
-    <environments>Default</environments>
     <interviewLabel>Test Security Flow {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Test Security Flow</label>
     <processMetadataValues>
@@ -12,8 +10,14 @@
             <stringValue>LightningFlowBuilder</stringValue>
         </value>
     </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
     <processType>Flow</processType>
-    <runInMode>UserMode</runInMode>
+    <runInMode>DefaultMode</runInMode>
     <screens>
         <name>Collect_Input</name>
         <label>Collect Input</label>
@@ -31,14 +35,6 @@
             <fieldText>Diagnostic Input</fieldText>
             <fieldType>InputField</fieldType>
             <isRequired>true</isRequired>
-            <styleProperties>
-                <verticalAlignment>
-                    <stringValue>top</stringValue>
-                </verticalAlignment>
-                <width>
-                    <stringValue>12</stringValue>
-                </width>
-            </styleProperties>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
@@ -55,14 +51,6 @@
             <name>Subflow_Output</name>
             <fieldText>&lt;p&gt;Subflow output: {!Invoke_Subflow.outputMessage}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
-            <styleProperties>
-                <verticalAlignment>
-                    <stringValue>top</stringValue>
-                </verticalAlignment>
-                <width>
-                    <stringValue>12</stringValue>
-                </width>
-            </styleProperties>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
@@ -74,7 +62,7 @@
             <targetReference>Collect_Input</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <subflows>
         <name>Invoke_Subflow</name>
         <label>Invoke API 68 Subflow</label>
