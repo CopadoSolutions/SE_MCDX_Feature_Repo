@@ -152,8 +152,6 @@ Only run this when the story is approved and ready to move to the next environme
 
 # Agentia CLI for AI Agents
 
-# Agentia CLI for AI Agents
-
 <!-- agentia:managed:start -->
 
 Use Agentia to manage Copado work items. Prefer registered Agentia MCP tools; otherwise use the CLI with `--json`.
@@ -170,7 +168,7 @@ Read records before changing them and use IDs returned by Copado. Do not skip `w
 
 Load exactly one copy of each applicable Agentia skill. Prefer the client-specific root when available (`.cursor/skills` in Cursor or `.claude/skills` in Claude); otherwise use `.agents/skills`.
 
-- `agentia-cicd/SKILL.md`: Copado stories, commits, publish, submit, done, promotions, jobs, environments, pipelines, Slack notification configure, and data.
+- `agentia-cicd/SKILL.md`: Copado stories, commits, publish, submit, done, promotions, jobs, Functions, Job Templates, environments, pipelines, Slack notification configure, and data.
 - `agentia-testing/SKILL.md`: Copado Robotic Testing operations.
 - `agentia-ai/SKILL.md`: Copado AI operations.
 
