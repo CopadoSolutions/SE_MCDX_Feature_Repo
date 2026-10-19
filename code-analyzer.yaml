@@ -1,0 +1,19 @@
+engines:
+  cpd:
+    disable_engine: true
+  eslint:
+    disable_engine: true
+  flow:
+    disable_engine: true
+  pmd:
+    disable_engine: true
+  regex:
+    disable_engine: true
+  retire-js:
+    disable_engine: true
+  sfge:
+    disable_engine: true
+  uibundle:
+    disable_engine: true
+  apexguru:
+    disable_engine: false
